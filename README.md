@@ -1,1 +1,2 @@
 # vk_parsing_solution_by_CSC
+Log in vk_public_parser.py. Enter the ID of the desired public Vkontakte, the output will get a file with all the data about the users including the phone number (if it is publicly available). Next in the script filter.py enter the name of the file (and specify the path to it if it is not in the same directory with the script), you will receive a file with filtered phone numbers they will be in the column mob_clear.
