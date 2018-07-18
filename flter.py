@@ -1,17 +1,17 @@
 import pandas as pd
+FILE_NAME = 'vospitanie_riti_kit16'
+# читаем Excel в Pandas DataFrame
+df = pd.read_excel(FILE_NAME+r'.xlsx', dtype={'mobile_phone':'str'})
 
-# read Excel in Pandas DataFrame
-df = pd.read_excel(r'your_file.xlsx', dtype={'mobile_phone':'str'})
-
-# delete all except numbers
+# удаляем все "не цифры"
 df['mob_clean'] = df.mobile_phone.str.replace(r'\D','')
 
-# filter mask: select numbers with at least 10 digits 
-# and that start with` 7 ' or ' 8`
+# маска фильтра: выбираем номера, в которых минимум 10 цифр
+# и которые начинаются на `7` или `8`
 mask = (df['mob_clean'].str.len() >= 10) & (df['mob_clean'].str.contains(r'^[78]'))
 
-# model the "wrong" number on the blank line
+# заменяем "неправильные" номера на пустую строку
 df.loc[~mask, ['mob_clean']] = ''
 
-# save DataFrame to Excel file
-df.to_excel(r'result.xlsx', index=False)
+# сохраняем DataFrame в Excel файл
+df.to_excel(FILE_NAME + '' + r'result.xlsx', index=False)
