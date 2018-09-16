@@ -3,7 +3,7 @@ import pandas as pd
 import time
 import json
 
-vk_session = vk_api.VkApi('89263185183', 'mariamanush123')  # логин и пароль
+vk_session = vk_api.VkApi('login', 'password')  # логин и пароль
 vk_session.auth()
 vk = vk_session.get_api()
 
